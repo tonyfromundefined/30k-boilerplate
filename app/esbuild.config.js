@@ -4,7 +4,7 @@ import { glob } from "glob";
 
 const entryPoints = await glob([path.resolve("./src/**/*.ts")]);
 
-build({
+await build({
   entryPoints,
   outdir: "dist",
   target: "node20",
@@ -14,7 +14,4 @@ build({
   sourcemap: false,
   format: "esm",
   plugins: [],
-}).catch((error) => {
-  console.log(error);
-  process.exit(1);
 });
