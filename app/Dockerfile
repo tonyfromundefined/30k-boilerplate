@@ -3,7 +3,6 @@ FROM node:20-alpine
 WORKDIR /usr/src/app
 
 # 의존성 복사 및 설치
-COPY .yarn/cache/ /usr/src/app/.yarn/cache/
 COPY .yarn/releases/ /usr/src/app/.yarn/releases/
 COPY package.json yarn.lock .yarnrc.yml tsconfig.json /usr/src/app/
 COPY app/package.json /usr/src/app/app/package.json
