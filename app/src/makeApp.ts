@@ -18,7 +18,7 @@ export async function makeApp() {
   });
 
   /**
-   * 헬스체크 용 엔드포인트를 등록합니다
+   * 헬스체크 엔드포인트를 등록합니다
    *
    * GET /healthz
    */
