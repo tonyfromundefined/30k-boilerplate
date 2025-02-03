@@ -1,0 +1,6 @@
+{
+  "name": "30k-boilerplate",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "yarn@4.6.0"
+}
