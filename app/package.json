@@ -5,7 +5,8 @@
   "scripts": {
     "build": "node ./esbuild.config.js",
     "dev": "nodemon",
-    "start": "NODE_ENV=production node --loader=extensionless ./dist/index.js"
+    "start": "NODE_ENV=production node --loader=extensionless ./dist/index.js",
+    "test": "vitest run"
   },
   "nodemonConfig": {
     "exec": "rimraf ./dist && yarn node ./esbuild.config.js && node --loader=extensionless ./dist/index.js | yarn pino-pretty --singleLine",
@@ -35,6 +36,8 @@
     "nodemon": "^3.1.9",
     "pino-pretty": "^13.0.0",
     "rimraf": "^6.0.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11",
+    "vitest": "^3.0.5"
   }
 }
