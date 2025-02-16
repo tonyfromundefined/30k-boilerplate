@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node ./esbuild.config.js",
+    "build": "node ./esbuild.config.js && react-router build",
     "dev": "nodemon",
     "start": "NODE_ENV=production node --loader=extensionless ./dist/index.js",
     "test": "vitest run"
@@ -13,7 +13,8 @@
     "ext": "ts,tsx,graphql",
     "ignore": [
       "dist/**",
-      "node_modules/**"
+      "node_modules/**",
+      "src/web/**"
     ],
     "watch": "src"
   },
@@ -21,6 +22,7 @@
     "@fastify/autoload": "^6.1.0",
     "@fastify/cors": "^10.0.2",
     "@fastify/env": "^5.0.2",
+    "@mcansh/remix-fastify": "^4.0.4",
     "@react-router/node": "^7.1.5",
     "@sinclair/typebox": "^0.34.15",
     "dotenv": "^16.4.7",
