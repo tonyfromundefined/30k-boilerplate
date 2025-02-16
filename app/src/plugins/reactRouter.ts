@@ -34,6 +34,6 @@ export default fp(
   },
   {
     name: "reactRouter",
-    dependencies: ["app.cors", "app.env", "app.gracefulShutdown"],
+    dependencies: ["app.env", "app.gracefulShutdown"],
   },
 );
