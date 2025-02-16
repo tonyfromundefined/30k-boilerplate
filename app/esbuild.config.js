@@ -2,7 +2,10 @@ import path from "node:path";
 import { build } from "esbuild";
 import { glob } from "glob";
 
-const entryPoints = await glob([path.resolve("./src/**/*.ts")]);
+const entryPoints = await glob([
+  path.resolve("./src/*.ts"),
+  path.resolve("./src/!(web)/**/*.ts"),
+]);
 
 await build({
   entryPoints,

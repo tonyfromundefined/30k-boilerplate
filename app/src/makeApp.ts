@@ -10,10 +10,6 @@ export async function makeApp() {
     logger: true,
   });
 
-  app.get("/", () => ({
-    message: "가보자고~~",
-  }));
-
   /**
    * 플러그인을 등록합니다
    */
