@@ -1,24 +1,24 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import type { FastifyInstance, FastifyRequest } from "fastify";
 import fp from "fastify-plugin";
-import { createSchema, createYoga, useSchema } from "graphql-yoga";
+import { createSchema, createYoga } from "graphql-yoga";
+import type { Context } from "../graphql/Context";
+import { resolvers } from "../graphql/resolvers";
 
 export default fp(
-  (app) => {
-    const schema = createSchema({
-      typeDefs: `
-        type Query {
-          ping: String!
-        }
-      `,
-      resolvers: {
-        Query: {
-          ping() {
-            return "pong";
-          },
-        },
-      },
+  async (app) => {
+    const typeDefs = await fs.readFile(
+      path.resolve("./src/graphql/__generated__/schema.graphql"),
+      "utf-8",
+    );
+
+    const schema = createSchema<Context>({
+      typeDefs,
+      resolvers,
     });
 
-    const yoga = createYoga({
+    const yoga = createYoga<Context>({
       schema,
     });
 
@@ -26,7 +26,10 @@ export default fp(
       method: ["GET", "POST", "OPTIONS"],
       url: yoga.graphqlEndpoint,
       async handler(req, reply) {
-        const context = {};
+        const context: Context = {
+          app,
+          req,
+        };
 
         const response = await yoga.handleNodeRequestAndResponse(
           req,
