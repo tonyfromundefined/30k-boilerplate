@@ -1,25 +1,16 @@
 import { reactRouterFastify } from "@mcansh/remix-fastify/react-router";
-import fp from "fastify-plugin";
-
-import type http from "node:http";
-import type http2 from "node:http2";
-import type https from "node:https";
 import type {
   FastifyInstance,
   FastifyRequest,
+  RawServerBase,
   RouteGenericInterface,
 } from "fastify";
-
-type Server =
-  | http.Server
-  | https.Server
-  | http2.Http2Server
-  | http2.Http2SecureServer;
+import fp from "fastify-plugin";
 
 declare module "react-router" {
   interface AppLoadContext {
     app: FastifyInstance;
-    req: FastifyRequest<RouteGenericInterface, Server>;
+    req: FastifyRequest<RouteGenericInterface, RawServerBase>;
   }
 }
 
