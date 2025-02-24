@@ -36,7 +36,10 @@
     "isbot": "^5.1.22",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.1.5"
+    "react-relay": "^18.2.0",
+    "react-router": "^7.1.5",
+    "relay-runtime": "^18.2.0",
+    "vite-plugin-cjs-interop": "^2.1.6"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.5",
@@ -47,13 +50,17 @@
     "@types/node": "20",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "@types/react-relay": "^18",
+    "@types/relay-runtime": "^18",
     "esbuild": "^0.24.2",
     "glob": "^11.0.1",
     "nodemon": "^3.1.9",
     "pino-pretty": "^13.0.0",
+    "relay-compiler": "^18.2.0",
     "rimraf": "^6.0.1",
     "typescript": "^5.7.3",
     "vite": "^6.1.0",
+    "vite-plugin-relay-lite": "^0.9.1",
     "vitest": "^3.0.5"
   }
 }
