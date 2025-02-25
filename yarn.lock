@@ -23,6 +23,8 @@ __metadata:
     "@types/node": "npm:20"
     "@types/react": "npm:^19.0.8"
     "@types/react-dom": "npm:^19.0.3"
+    "@types/react-relay": "npm:^18"
+    "@types/relay-runtime": "npm:^18"
     dotenv: "npm:^16.4.7"
     dotenv-safe: "npm:^9.1.0"
     esbuild: "npm:^0.24.2"
@@ -38,10 +40,15 @@ __metadata:
     pino-pretty: "npm:^13.0.0"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
+    react-relay: "npm:^18.2.0"
     react-router: "npm:^7.1.5"
+    relay-compiler: "npm:^18.2.0"
+    relay-runtime: "npm:^18.2.0"
     rimraf: "npm:^6.0.1"
     typescript: "npm:^5.7.3"
     vite: "npm:^6.1.0"
+    vite-plugin-cjs-interop: "npm:^2.1.6"
+    vite-plugin-relay-lite: "npm:^0.9.1"
     vitest: "npm:^3.0.5"
   languageName: unknown
   linkType: soft
@@ -439,7 +446,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.25.0":
   version: 7.26.9
   resolution: "@babel/runtime@npm:7.26.9"
   dependencies:
@@ -2183,12 +2190,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-relay@npm:^18":
+  version: 18.2.0
+  resolution: "@types/react-relay@npm:18.2.0"
+  dependencies:
+    "@types/react": "npm:*"
+    "@types/relay-runtime": "npm:*"
+  checksum: 10c0/0809ad0e7e9c73d02a84b3c66947a1b925e44206595951e84a30f29a6ba9bfb49309c6d490906db81762d86627b42a437a4a8b036c803b95baa76abbcd54af2b
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:*":
+  version: 19.0.10
+  resolution: "@types/react@npm:19.0.10"
+  dependencies:
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/41884cca21850c8b2d6578b172ca0ca4fff6021251a68532b19f2031ac23dc5a9222470208065f8d9985d367376047df2f49ece8d927f7d04cdc94922b1eb34b
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:^19.0.8":
   version: 19.0.8
   resolution: "@types/react@npm:19.0.8"
   dependencies:
     csstype: "npm:^3.0.2"
   checksum: 10c0/5fa7236356b1476de03519c66ef65d4fd904826956105619e2ad60cb0b55ae7b251dd5fff02234076225b5e15333d0d936bf9dbe1d461406f8a2ba01c197ddcd
+  languageName: node
+  linkType: hard
+
+"@types/relay-runtime@npm:*, @types/relay-runtime@npm:^18":
+  version: 18.2.5
+  resolution: "@types/relay-runtime@npm:18.2.5"
+  checksum: 10c0/c8c2e26da41f9e49d321b6f2471297d895c44a58573531bb95b70c3376d07a31e5c4a74647d8b667c7fc4b1c6d51da1415f8cb5148d7f7fa64087a4fc3d6d4b7
   languageName: node
   linkType: hard
 
@@ -2343,6 +2376,24 @@ __metadata:
   version: 2.0.1
   resolution: "abstract-logging@npm:2.0.1"
   checksum: 10c0/304879d9babcf6772260e5ddde632e6428e1f42f7a7a116d4689e97ad813a20e0ec2dd1e0a122f3617557f40091b9ca85735de4b48c17a2041268cb47b3f8ef1
+  languageName: node
+  linkType: hard
+
+"acorn-import-assertions@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "acorn-import-assertions@npm:1.9.0"
+  peerDependencies:
+    acorn: ^8
+  checksum: 10c0/3b4a194e128efdc9b86c2b1544f623aba4c1aa70d638f8ab7dc3971a5b4aa4c57bd62f99af6e5325bb5973c55863b4112e708a6f408bad7a138647ca72283afe
+  languageName: node
+  linkType: hard
+
+"acorn@npm:^8.14.0":
+  version: 8.14.0
+  resolution: "acorn@npm:8.14.0"
+  bin:
+    acorn: bin/acorn
+  checksum: 10c0/6d4ee461a7734b2f48836ee0fbb752903606e576cc100eb49340295129ca0b452f3ba91ddd4424a1d4406a98adfb2ebb6bd0ff4c49d7a0930c10e462719bbfd7
   languageName: node
   linkType: hard
 
@@ -2959,6 +3010,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cosmiconfig@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "cosmiconfig@npm:9.0.0"
+  dependencies:
+    env-paths: "npm:^2.2.1"
+    import-fresh: "npm:^3.3.0"
+    js-yaml: "npm:^4.1.0"
+    parse-json: "npm:^5.2.0"
+  peerDependencies:
+    typescript: ">=4.9.5"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10c0/1c1703be4f02a250b1d6ca3267e408ce16abfe8364193891afc94c2d5c060b69611fdc8d97af74b7e6d5d1aac0ab2fb94d6b079573146bc2d756c2484ce5f0ee
+  languageName: node
+  linkType: hard
+
 "cross-fetch@npm:^3.1.5":
   version: 3.2.0
   resolution: "cross-fetch@npm:3.2.0"
@@ -3198,7 +3266,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"env-paths@npm:^2.2.0":
+"env-paths@npm:^2.2.0, env-paths@npm:^2.2.1":
   version: 2.2.1
   resolution: "env-paths@npm:2.2.1"
   checksum: 10c0/285325677bf00e30845e330eec32894f5105529db97496ee3f598478e50f008c5352a41a30e5e72ec9de8a542b5a570b85699cd63bd2bc646dbcb9f311d83bc4
@@ -3550,7 +3618,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fbjs@npm:^3.0.0":
+"fbjs@npm:^3.0.0, fbjs@npm:^3.0.2":
   version: 3.0.5
   resolution: "fbjs@npm:3.0.5"
   dependencies:
@@ -4417,6 +4485,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kleur@npm:^4.1.5":
+  version: 4.1.5
+  resolution: "kleur@npm:4.1.5"
+  checksum: 10c0/e9de6cb49657b6fa70ba2d1448fd3d691a5c4370d8f7bbf1c2f64c24d461270f2117e1b0afe8cb3114f13bbd8e51de158c2a224953960331904e636a5e4c0f2a
+  languageName: node
+  linkType: hard
+
 "light-my-request@npm:^6.0.0":
   version: 6.5.1
   resolution: "light-my-request@npm:6.5.1"
@@ -4558,7 +4633,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.30.17":
+"magic-string@npm:^0.30.1, magic-string@npm:^0.30.14, magic-string@npm:^0.30.17":
   version: 0.30.17
   resolution: "magic-string@npm:0.30.17"
   dependencies:
@@ -4638,7 +4713,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^10.0.0":
+"minimatch@npm:^10.0.0, minimatch@npm:^10.0.1":
   version: 10.0.1
   resolution: "minimatch@npm:10.0.1"
   dependencies:
@@ -5470,6 +5545,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-relay@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "react-relay@npm:18.2.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.25.0"
+    fbjs: "npm:^3.0.2"
+    invariant: "npm:^2.2.4"
+    nullthrows: "npm:^1.1.1"
+    relay-runtime: "npm:18.2.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17 || ^18
+  checksum: 10c0/f753212408fe5b6e5bedac116f3ac94414d3c94efb3cc4a3de4f32336a80f2d1f54db472b89b5777fcb6149df0f4ad13df28a0f8acf6fd7c005a9028dc7d4a54
+  languageName: node
+  linkType: hard
+
 "react-router@npm:^7.1.5":
   version: 7.1.5
   resolution: "react-router@npm:7.1.5"
@@ -5551,6 +5641,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"relay-compiler@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "relay-compiler@npm:18.2.0"
+  bin:
+    relay-compiler: cli.js
+  checksum: 10c0/3249b9def1cf152813a9f7814e708c9a918ec1b87434188d4a710742b11be0a973d6f49b8935a28708e74e628fc326f72072b0c9da58c2824cd8afbcd3c94643
+  languageName: node
+  linkType: hard
+
 "relay-runtime@npm:12.0.0":
   version: 12.0.0
   resolution: "relay-runtime@npm:12.0.0"
@@ -5559,6 +5658,17 @@ __metadata:
     fbjs: "npm:^3.0.0"
     invariant: "npm:^2.2.4"
   checksum: 10c0/f5d29b5c2f3c8a3438d43dcbc3022bd454c4ecbd4f0b10616df08bedc62d8aaa84f155f23e374053cf9f4a8238b93804e37a5b37ed9dc7ad01436d62d1b01d53
+  languageName: node
+  linkType: hard
+
+"relay-runtime@npm:18.2.0, relay-runtime@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "relay-runtime@npm:18.2.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.25.0"
+    fbjs: "npm:^3.0.2"
+    invariant: "npm:^2.2.4"
+  checksum: 10c0/497ec7139a56e0834e5a21d3b86af1800dd10f56b4cc730d2265d94a581910a7768ae469edb38ac9538411255c2ea6864a468dd29fec21610971cb98d3b48f0a
   languageName: node
   linkType: hard
 
@@ -6731,6 +6841,35 @@ __metadata:
   bin:
     vite-node: vite-node.mjs
   checksum: 10c0/8ea2d482d5e257d2052a92e52b7ffdbc379d9e8310a9349ef5e9a62e4a522069d5c0bef071e4a121fb1ab404b0896d588d594d50af3f2be6432782751f4ccb0a
+  languageName: node
+  linkType: hard
+
+"vite-plugin-cjs-interop@npm:^2.1.6":
+  version: 2.1.6
+  resolution: "vite-plugin-cjs-interop@npm:2.1.6"
+  dependencies:
+    acorn: "npm:^8.14.0"
+    acorn-import-assertions: "npm:^1.9.0"
+    estree-walker: "npm:^3.0.3"
+    magic-string: "npm:^0.30.14"
+    minimatch: "npm:^10.0.1"
+  peerDependencies:
+    vite: 4 || 5 || 6
+  checksum: 10c0/12aac98efb648113e029fa2256334eefbddf8f51a286aa8c831e01785cf9427e718da6236cb2a047c27b319ab09512759ebd2c1ad675405492aa20cfaceec2cf
+  languageName: node
+  linkType: hard
+
+"vite-plugin-relay-lite@npm:^0.9.1":
+  version: 0.9.1
+  resolution: "vite-plugin-relay-lite@npm:0.9.1"
+  dependencies:
+    cosmiconfig: "npm:^9.0.0"
+    kleur: "npm:^4.1.5"
+    magic-string: "npm:^0.30.1"
+  peerDependencies:
+    graphql: ^15.0.0 || ^16.0.0
+    vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
+  checksum: 10c0/80319d3a9fd9a03db40df7c762c488b14e73dd3d589196e9401931464040e2cc37215fe78ae17bbdc62b560072291676fa7f399db016c1d9f6063f86867a902a
   languageName: node
   linkType: hard
 
