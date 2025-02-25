@@ -2,12 +2,15 @@ import path from "node:path";
 import FastifyAutoload from "@fastify/autoload";
 import Fastify from "fastify";
 
+const SECOND = 1000;
+
 export async function makeApp() {
   /**
    * 앱을 생성합니다
    */
   const app = Fastify({
     logger: true,
+    pluginTimeout: 60 * SECOND,
   });
 
   /**
